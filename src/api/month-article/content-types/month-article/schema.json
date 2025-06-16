@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "month_articles",
+  "info": {
+    "singularName": "month-article",
+    "pluralName": "month-articles",
+    "displayName": "MonthArticle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Month": {
+      "type": "string"
+    },
+    "Blurb": {
+      "type": "text"
+    }
+  }
+}
