@@ -385,7 +385,7 @@ export interface ApiMonthArticleMonthArticle
     draftAndPublish: true;
   };
   attributes: {
-    Blurb: Schema.Attribute.Text;
+    blurb: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -395,7 +395,7 @@ export interface ApiMonthArticleMonthArticle
       'api::month-article.month-article'
     > &
       Schema.Attribute.Private;
-    Month: Schema.Attribute.String;
+    month: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -11,10 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Month": {
+    "month": {
       "type": "string"
     },
-    "Blurb": {
+    "blurb": {
       "type": "text"
     }
   }

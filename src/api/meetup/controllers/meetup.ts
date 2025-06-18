@@ -8,6 +8,7 @@ export default {
     if (!rssResponse.ok){
         ctx.response.body = "Error fetching RSS data from meetup: " + rssResponse.text;
         ctx.response.status = rssResponse.status;
+        return;
     }
     const rssData = await rssResponse.text();
     ctx.response.body = rssData;
@@ -21,6 +22,7 @@ export default {
     if (!eventResponse.ok){
         ctx.response.body = "Error fetching RSS data from meetup: " + eventResponse.text;
         ctx.response.status = eventResponse.status;
+        return;
     }
     const eventData = await eventResponse.text();
     ctx.response.body = eventData;
