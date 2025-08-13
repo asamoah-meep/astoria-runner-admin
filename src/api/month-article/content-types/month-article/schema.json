@@ -11,8 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "month": {
+    "monthName": {
       "type": "string"
+    },
+    "monthIndex": {
+      "type": "integer"
     },
     "blurb": {
       "type": "text"

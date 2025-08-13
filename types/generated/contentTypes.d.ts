@@ -395,7 +395,8 @@ export interface ApiMonthArticleMonthArticle
       'api::month-article.month-article'
     > &
       Schema.Attribute.Private;
-    month: Schema.Attribute.String;
+    monthIndex: Schema.Attribute.Integer;
+    monthName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
