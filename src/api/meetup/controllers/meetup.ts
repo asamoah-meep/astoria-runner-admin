@@ -3,13 +3,13 @@
  */
 
 import { parseFromString, Node } from "dom-parser";
-import { RunningEvent } from "../../../models/runningEvent";
+import { MeetupRunningEvent } from "../../../models/runningEvent";
 import { Context } from "koa";
 
 const EVENT_DATE_REGEX = new RegExp(/<time dateTime="([\dT:-]+)".+?>/);
 const EVENT_TITLE_REGEX = new RegExp(/<title>(.+)\|(.+)<\/title>/);
 
-async function processRunningEvent(item: Node): Promise<RunningEvent|null>{
+async function processRunningEvent(item: Node): Promise<MeetupRunningEvent|null>{
    
   const linkTag: Node = item.getElementsByTagName("guid")[0];
   const link: string|null = linkTag?.textContent;
@@ -65,7 +65,7 @@ export default {
     const domData = parseFromString(filteredRSSData);
     const items: Node[] = domData.getElementsByTagName("item");
 
-    const events: RunningEvent[] = (await Promise.all(
+    const events: MeetupRunningEvent[] = (await Promise.all(
       items.map(processRunningEvent)))
       .filter(ele => ele != null);
     ctx.response.body = events;

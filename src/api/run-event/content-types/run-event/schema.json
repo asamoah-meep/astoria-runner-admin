@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "run_events",
+  "info": {
+    "singularName": "run-event",
+    "pluralName": "run-events",
+    "displayName": "RunEvent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "dateStr": {
+      "type": "string"
+    }
+  }
+}
