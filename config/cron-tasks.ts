@@ -161,7 +161,8 @@ async function processRunningEvent(item: Node): Promise<MeetupRunningEvent|null>
 export default {
     runningEvents: {
         options: {
-            rule: "0 6 * * 2", // Scheduling on Tuesdays since we never schedule runs then,
+            // rule: "0 6 * * 2", // Scheduling on Tuesdays since we never schedule runs then,
+            rule: "0 10 * * *", //Testing the function by scheduling it daily to see if anything breaks
             tz: "America/New_York"
         }, 
         task: async ({ strapi }) => {
