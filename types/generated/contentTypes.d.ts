@@ -434,6 +434,37 @@ export interface ApiRunEventRunEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSpecialEventSpecialEvent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'special_events';
+  info: {
+    displayName: 'SpecialEvent';
+    pluralName: 'special-events';
+    singularName: 'special-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eventDescription: Schema.Attribute.String;
+    eventLink: Schema.Attribute.String;
+    eventName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::special-event.special-event'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -945,6 +976,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::month-article.month-article': ApiMonthArticleMonthArticle;
       'api::run-event.run-event': ApiRunEventRunEvent;
+      'api::special-event.special-event': ApiSpecialEventSpecialEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
