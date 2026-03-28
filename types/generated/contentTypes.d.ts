@@ -449,6 +449,7 @@ export interface ApiSpecialEventSpecialEvent
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    eventDate: Schema.Attribute.Date;
     eventDescription: Schema.Attribute.String;
     eventLink: Schema.Attribute.String;
     eventName: Schema.Attribute.String;
