@@ -404,6 +404,39 @@ export interface ApiMonthArticleMonthArticle
   };
 }
 
+export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
+  collectionName: 'routes';
+  info: {
+    displayName: 'Route';
+    pluralName: 'routes';
+    singularName: 'route';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    distance: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::route.route'> &
+      Schema.Attribute.Private;
+    meetupLink: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    photos: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    stravaLink: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRunEventRunEvent extends Struct.CollectionTypeSchema {
   collectionName: 'run_events';
   info: {
@@ -976,6 +1009,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::month-article.month-article': ApiMonthArticleMonthArticle;
+      'api::route.route': ApiRouteRoute;
       'api::run-event.run-event': ApiRunEventRunEvent;
       'api::special-event.special-event': ApiSpecialEventSpecialEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
