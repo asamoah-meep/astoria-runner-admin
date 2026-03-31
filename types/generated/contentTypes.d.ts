@@ -419,7 +419,7 @@ export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    distance: Schema.Attribute.Integer;
+    distance: Schema.Attribute.Decimal;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::route.route'> &
       Schema.Attribute.Private;
@@ -431,6 +431,9 @@ export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     stravaLink: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['Beer Run', 'Brunch', 'Weekend', 'Coffee']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

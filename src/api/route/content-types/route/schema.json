@@ -15,7 +15,7 @@
       "type": "string"
     },
     "distance": {
-      "type": "integer"
+      "type": "decimal"
     },
     "meetupLink": {
       "type": "string"
@@ -35,6 +35,15 @@
     },
     "description": {
       "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Beer Run",
+        "Brunch",
+        "Weekend",
+        "Coffee"
+      ]
     }
   }
 }
